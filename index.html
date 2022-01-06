@@ -4,20 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Penguin</title>
+    <title>Waving penguin</title>
   </head>
   <body>
     <style>
+      :root {
+        --penguin-size: 300px;
+        --penguin-skin: gray;
+        --penguin-belly: white;
+        --penguin-beak: orange;
+      }
       .penguin {
-        --penguin-skin: black;
-        --penguin-belly: gray;
-        --penguin-beak: yellow;
         position: relative;
         margin: auto;
         display: block;
         margin-top: 5%;
-        width: 300px;
-        height: 300px;
+        width: var(--penguin-size, 300px);
+        height: var(--penguin-size, 300px);
       }
 
       .penguin-top {
@@ -39,15 +42,35 @@
       }
 
       .right-hand {
-        top: 0%;
-        left: -5%;
-        background: var(--penguin-skin, gray);
+        top: 5%;
+        left: 25%;
+        background: var(--penguin-skin, black);
         width: 30%;
         height: 60%;
         border-radius: 30% 30% 120% 30%;
-        transform: rotate(45deg);
+        transform: rotate(130deg);
         z-index: -1;
+        animation-duration: 3s;
+        animation-name: wave;
+        animation-iteration-count: infinite;
+        transform-origin:0% 0%;
+        animation-timing-function: linear;
       }
+      
+       @keyframes wave {
+      10% {
+        transform: rotate(110deg);
+      }
+      20% {
+        transform: rotate(130deg);
+      }
+      30% {
+        transform: rotate(110deg);
+      }
+      40% {
+        transform: rotate(130deg);
+      }
+    }
 
       .left-hand {
         top: 0%;
@@ -120,7 +143,7 @@
 
       .left-eye {
         top: 45%;
-        left: 25%;
+        left:-23%;
         background: black;
         width: 15%;
         height: 17%;
@@ -129,10 +152,10 @@
 
       .sparkle {
         top: 25%;
-        left: 15%;
+        left: -23%;
         background: white;
-        width: 35%;
-        height: 35%;
+        width: 150%;
+        height: 100%;
         border-radius: 50%;
       }
 
